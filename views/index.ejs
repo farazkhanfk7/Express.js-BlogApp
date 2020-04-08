@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <title>Blog App</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4 indh1 mt-3" >Blog Articles</h1>
+        <a href="/articles/new" class="btn btn-success">Write New Article</a>
+        <a href="https://www.github.com/farazkhanfk7" target="_blank" class="btn btn-info btn-rounded" style="float:right;">Check Github Code</a>
+        <a href="farazkhan138@gmail.com"><span class="glyphicon glyphicon-envelope"></span></a>
+
+        <% articles.forEach(article => { %>
+            <div class="card mt-4 crd">
+                <div class="card-body">
+                    <h4 class="card-title"><%= article.title %></h4>
+                    <h6 class="card-title">Written by <%= article.author %></h6>
+                    <div class="card-subtitle datetext mb-2">
+                        <%= article.createat.toLocaleDateString() %>
+                    </div>
+                    <div class="card-text-mb2"><%= article.description %></div>
+                    <a href="articles/<%= article.slug %>" class="mt-3 btn btn-primary">Read Full Blog</a>
+                    <a href="articles/edit/<%= article.id %>" class="mt-3 btn btn-success">Edit</a>
+                    <form action="/articles/<%=article.id %>?_method=DELETE" method="POST" class="d-inline">
+                        <button type="submit" class="btn btn-danger mt-3 ">Delete </button>
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+
+        <div class ="mt-4 mb-4">
+            <footer class="page-footer font-small blue">
+            <div class="footer-copyright text-center py-3">© 2020 Faraz Khan:
+               <a href="https://www.github.com/farazkhanfk7" target="_blank"> Check Github</a>
+             </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

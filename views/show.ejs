@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <title>Blog App</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4 mt-3"><%= article.title %></h1>
+        <h4 class="mb-4"><%= article.author %></h4>
+        <div class="datetext mb-3">
+            <%= article.createat.toString() %>
+        </div>
+
+        <a href="/" class="btn btn-primary">All Articles</a>
+        <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
+
+        <div class="mt-4 card crd">
+            <div class="card-body m-1">
+                <div>
+                    <h4><%= article.description %></h4>
+                </div>
+                <div style="font-size:large;"><%= article.markdown %></div>
+            </div>
+        </div>
+
+        <div class ="mt-4 mb-4">
+            <footer class="page-footer font-small blue">
+            <div class="footer-copyright text-center py-3">© 2020 Faraz Khan:
+               <a href="https://www.github.com/farazkhanfk7" target="_blank"> Check Github</a>
+             </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
